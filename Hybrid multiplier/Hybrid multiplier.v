@@ -138,10 +138,13 @@ module code(one,two,sign,y2,y1,y0);
 input y2,y1,y0;
 output one,two,sign;
 wire [1:0]k;
-xor x1(one,y0,y1);
-xor x2(k[1],y2,y1);
-not n1(k[0],one);
-and a1(two,k[0],k[1]);
+xor I0(one,y0,y1);
+xor I1(k[1],y2,y1);
+not I2(k[0],one);
+and I3(two,k[0],k[1]);
+
+// assign buffer icin iki not?
+// ya da sign'i inputOutput secince duzeliyor
 assign sign=y2;
 endmodule
 
@@ -153,12 +156,12 @@ module product(x1,x0,x2,one,two,sign,p,i,ca);
 input x1,x0,x2,sign,one,two;
 output p,i,ca;
 wire [2:0] k;
-xor xo1(i,x1,sign);
-and a1(k[1],i,one);
-and a0(k[0],x0,two);
-or o0(k[2],k[1],k[0]);
-xor xo2(p,k[2],x2);
-and a2(ca,k[2],x2);
+xor I0(i,x1,sign);
+and I1(k[1],i,one);
+and I2(k[0],x0,two);
+or I3(k[2],k[1],k[0]);
+xor I4(p,k[2],x2);
+and I5(ca,k[2],x2);
 endmodule
 
 
@@ -167,39 +170,45 @@ endmodule
 module HAd(a,b,c,s);
 input a,b;
 output c,s;
-xor x1(s,a,b);
-and a1(c,a,b);
-endmodule
-
-module FAd(a,b,c,cy,sm);
-input a,b,c;
-output cy,sm;
-wire x,y;
-xor x1(x,a,b);
-xnor x2(y,a,b);
-MUX m1(x,y,c,sm);
-MUX m2(a,c,x,cy);
+xor I0(s,a,b);
+and I1(c,a,b);
 endmodule
 
 module MUX(i0,i1,s,o);
 input i0,i1,s;
 output o;
 wire t,p,q;
-and a1(t,s,i1);
-not n0(p,s);
-and a2(q,p,i0);
-or a3(o,t,q);
+and I0(t,s,i1);
+not I1(p,s);
+and I2(q,p,i0);
+or I3(o,t,q);
+endmodule
+
+module FAd(a,b,c,cy,sm);
+input a,b,c;
+output cy,sm;
+wire x,y;
+xor I0(x,a,b);
+
+// xnor'u ayrica cizebiliriz, bakmak lazim
+//xnor x2(y,a,b);
+wire z;
+xor I1(z,a,b);
+not I2(y,z);
+
+MUX I3(x,y,c,sm);
+MUX I4(a,c,x,cy);
 endmodule
 
 module FA(a,b,c,cy,sm);
 input a,b,c;
 output cy,sm;
 wire x,y,z;
-xor x1(x,a,b);
-xor x2(sm,x,c);
-and a1(y,a,b);
-and a2(z,x,c);
-or o1(cy,y,z);
+xor I0(x,a,b);
+xor I1(sm,x,c);
+and I2(y,a,b);
+and I3(z,x,c);
+or I4(cy,y,z);
 endmodule
 
 
