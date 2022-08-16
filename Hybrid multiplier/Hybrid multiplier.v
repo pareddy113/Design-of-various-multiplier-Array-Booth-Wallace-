@@ -216,36 +216,92 @@ endmodule
 module cla(n,z,o,a,b);
 input [3:0] a,b;
 input o;
+  
 wire [3:0] p,g,c;
 wire [9:0]m;
+  
 output [3:0]n;
 output z;
-xor (p[0],a[0],b[0]);
-and (g[0],a[0],b[0]);
-xor (p[1],a[1],b[1]);
-and (g[1],a[1],b[1]);
-xor (p[2],a[2],b[2]);
-and (g[2],a[2],b[2]);
-xor (p[3],a[3],b[3]);
-and (g[3],a[3],b[3]);
+  
+xor I0(p[0],a[0],b[0]);
+and I1(g[0],a[0],b[0]);
+xor I2(p[1],a[1],b[1]);
+and I3(g[1],a[1],b[1]);
+xor I4(p[2],a[2],b[2]);
+and I5(g[2],a[2],b[2]);
+xor I6(p[3],a[3],b[3]);
+and I7(g[3],a[3],b[3]);
 
-and (m[0],o,p[0]);
-or (c[0],m[0],g[0]);
-and (m[1],g[0],p[1]);
-and (m[2],o,p[0],p[1]);
-or (c[1],g[1],m[1],m[2]);
-and (m[3],g[1],p[2]);
-and (m[4],g[0],p[1],p[2]);
-and (m[5],o,p[1],p[2],p[0]);
-or (c[2],g[2],m[3],m[4],m[5]);
-and (m[6],g[2],p[3]);
-and (m[7],g[1],p[2],p[3]);
-and (m[8],g[0],p[1],p[2],p[3]);
-and (m[9],o,p[0],p[1],p[2],p[3]);
-or (c[3],g[3],m[6],m[7],m[8],m[9]);
-xor (n[0],p[0],o);
-xor (n[1],p[1],c[0]);
-xor (n[2],p[2],c[1]);
-xor (n[3],p[3],c[2]);
+and I8(m[0],o,p[0]);
+or I9(c[0],m[0],g[0]);
+and I10(m[1],g[0],p[1]);
+
+// burada and3 yapabiliriz simdilik 2 andli yapalim.
+//and I11(m[2],o,p[0],p[1]);
+wire op0;
+and I11(op0, o, p[0]);
+and I26(m[2], op0, p[1]);
+  
+//or I12(c[1],g[1],m[1],m[2]);
+wire g1m1;
+or I12(g1m1, g[1], m[1]);
+or I27(c[1], g1m1, m[2]);
+
+and I13(m[3],g[1],p[2]);
+  
+//and I14(m[4],g[0],p[1],p[2]);
+wire g0p1;
+and I14(g0p1, g[0], p[1]);
+and I28(m[4], g0p1, p[2]);
+  
+// and4 lazim aslinda
+//and I15(m[5],o,p[1],p[2],p[0]);
+wire op1;
+and I15(op1, o, p[1]);
+wire op1p2;
+and I29(op1p2, op1, p[2]);
+and I30(m[5], op1p2, p[0]);
+
+// or4 lazim aslinda
+//or I16(c[2],g[2],m[3],m[4],m[5]);
+wire g2m3;
+or I16(g2m3, g[2], m[3]);
+wire g2m3m4;
+or I31(g2m3m4, g2m3, m[4]);
+or I32(c[2], g2m3m4, m[5]);
+  
+and I17(m[6],g[2],p[3]);
+  
+//and I18(m[7],g[1],p[2],p[3]);
+wire g1p2;
+and I18(g1p2, g[1], p[2]);
+and I33(m[7], g1p2, p[3]);
+  
+//and I19(m[8],g[0],p[1],p[2],p[3]);
+//wire g0p1; // yukarida tanimlandi
+//and I19(g0p1p2, g0p1, p[2]) = m[4] // yukarida tanimlandi
+and I19(m[8], m[4], p[3]);
+  
+//and I20(m[9],o,p[0],p[1],p[2],p[3]);
+//wire op0p1 = m2 // yukarida tanimlandi
+wire m2p2;
+and I20(m2p2, m[2], p[2]);
+and I34(m[9], m2p2, p[3]);
+
+// aslinda or5 lazim.
+//or I21(c[3],g[3],m[6],m[7],m[8],m[9]);
+wire g3m6;
+or I21(g3m6, g[3], m[6]);
+wire g3m6m7;
+or I35(g3m6m7, g3m6, m[7]);
+wire g3m6m7m8;
+or I36(g3m6m7m8, g3m6m7, m[8]);
+or I37(c[3], g3m6m7m8, m[9]);
+  
+xor I22(n[0],p[0],o);
+xor I23(n[1],p[1],c[0]);
+xor I24(n[2],p[2],c[1]);
+xor I25(n[3],p[3],c[2]);
+  
 assign z=c[3];
 endmodule 
