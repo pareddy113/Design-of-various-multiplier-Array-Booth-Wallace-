@@ -10,27 +10,25 @@ wire [6:0] c2;
 wire [11:0] m;
 wire [3:0] cry,z;
 // carry generation
+
+// module code(one,two,sign,y2,y1,y0);
+code I6(one[0],two[0],sign[0],y[1],y[0],1'b0);
+code I7(one[1],two[1],sign[1],y[3],y[2],y[1]);
+code I8(one[2],two[2],sign[2],y[5],y[4],y[3]);
+code I9(one[3],two[3],sign[3],y[7],y[6],y[5]);
+  
 // 1st
-xor n9(z[0],one[0],two[0]);
-and n10(cry[0],z[0],sign[0]);
+xor I0(z[0],one[0],two[0]);
+and I1(cry[0],z[0],sign[0]);
 //2nd
-xor n13(z[1],one[1],two[1]);
-and n14(cry[1],z[1],sign[1]);
+xor I2(z[1],one[1],two[1]);
+and I3(cry[1],z[1],sign[1]);
 //3rd
-xor n15(z[2],one[2],two[2]);
-and n16(cry[2],z[2],sign[2]);
+xor I4(z[2],one[2],two[2]);
+and I5(cry[2],z[2],sign[2]);
 //4th
-xor n17(z[3],one[3],two[3]);
-and n18(cry[3],z[3],sign[3]);
-
-
-
-code e1(one[0],two[0],sign[0],y[1],y[0],1'b0);
-code e2(one[1],two[1],sign[1],y[3],y[2],y[1]);
-code e3(one[2],two[2],sign[2],y[5],y[4],y[3]);
-code e4(one[3],two[3],sign[3],y[7],y[6],y[5]);
-
-
+xor I11(z[3],one[3],two[3]);
+and I12(cry[3],z[3],sign[3]);
 
 //first product generation
 product p0(x[0],sign[0],cry[0],one[0],two[0],sign[0],fp[0],i[0],n[0]);
