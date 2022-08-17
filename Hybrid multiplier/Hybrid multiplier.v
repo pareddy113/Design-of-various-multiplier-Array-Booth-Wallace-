@@ -27,42 +27,43 @@ and I3(cry[1],z[1],sign[1]);
 xor I4(z[2],one[2],two[2]);
 and I5(cry[2],z[2],sign[2]);
 //4th
-xor I11(z[3],one[3],two[3]);
+xor I11(z[3],one[3],two[3]); // cadence I10'a izin vermedi garip bir sekilde
 and I12(cry[3],z[3],sign[3]);
 
 //first product generation
-product p0(x[0],sign[0],cry[0],one[0],two[0],sign[0],fp[0],i[0],n[0]);
-product p1(x[1],i[0],n[0],one[0],two[0],sign[0],fp[1],i[1],n[1]);
-product p2(x[2],i[1],n[1],one[0],two[0],sign[0],fp[2],i[2],n[2]);
-product p3(x[3],i[2],n[2],one[0],two[0],sign[0],fp[3],i[3],n[3]);
-product p4(x[4],i[3],n[3],one[0],two[0],sign[0],fp[4],i[4],n[4]);
-product p5(x[5],i[4],n[4],one[0],two[0],sign[0],fp[5],i[5],n[5]);
-product p6(x[6],i[5],n[5],one[0],two[0],sign[0],fp[6],i[6],n[6]);
-product p7(x[7],i[6],n[6],one[0],two[0],sign[0],fp[7],i[7],n[7]);
-xor x1(m[0],i[7],n[7]);
-and a1(m[1],two[0],i[7]);
-and a2(m[2],one[0],m[0]);
-or o1(fp[8],m[1],m[2]);
-not n1(fp[9],fp[8]);
+  
+// module product(x1,x0,x2,one,two,sign,p,i,ca);
+product I15(x[0],sign[0],cry[0],one[0],two[0],sign[0],fp[0],i[0],n[0]);
+product I16(x[1],i[0],n[0],one[0],two[0],sign[0],fp[1],i[1],n[1]);
+product I17(x[2],i[1],n[1],one[0],two[0],sign[0],fp[2],i[2],n[2]);
+product I18(x[3],i[2],n[2],one[0],two[0],sign[0],fp[3],i[3],n[3]);
+product I19(x[4],i[3],n[3],one[0],two[0],sign[0],fp[4],i[4],n[4]);
+product I20(x[5],i[4],n[4],one[0],two[0],sign[0],fp[5],i[5],n[5]);
+product I21(x[6],i[5],n[5],one[0],two[0],sign[0],fp[6],i[6],n[6]);
+product I22(x[7],i[6],n[6],one[0],two[0],sign[0],fp[7],i[7],n[7]);
+xor I23(m[0],i[7],n[7]);
+and I24(m[1],two[0],i[7]);
+and I25(m[2],one[0],m[0]);
+or I26(fp[8],m[1],m[2]);
+not I27(fp[9],fp[8]);
 assign p[0]=fp[0];
-
-
-//second product generation
-product q0(x[0],sign[1],cry[1],one[1],two[1],sign[1],sp[0],j[0],o[0]);
-product q1(x[1],j[0],o[0],one[1],two[1],sign[1],sp[1],j[1],o[1]);
-product q2(x[2],j[1],o[1],one[1],two[1],sign[1],sp[2],j[2],o[2]);
-product q3(x[3],j[2],o[2],one[1],two[1],sign[1],sp[3],j[3],o[3]);
-product q4(x[4],j[3],o[3],one[1],two[1],sign[1],sp[4],j[4],o[4]);
-product q5(x[5],j[4],o[4],one[1],two[1],sign[1],sp[5],j[5],o[5]);
-product q6(x[6],j[5],o[5],one[1],two[1],sign[1],sp[6],j[6],o[6]);
-product q7(x[7],j[6],o[6],one[1],two[1],sign[1],sp[7],j[7],o[7]);
-xor x2(m[3],j[7],o[7]);
-and a3(m[4],two[1],j[7]);
-and a4(m[5],one[1],m[3]);
-or o2(sp[8],m[4],m[5]);
-not n2(sp[9],sp[8]);
 assign p[1]=fp[1];
 
+//second product generation
+// module product(x1,x0,x2,one,two,sign,p,i,ca);
+product I28(x[0],sign[1],cry[1],one[1],two[1],sign[1],sp[0],j[0],o[0]);
+product I29(x[1],j[0],o[0],one[1],two[1],sign[1],sp[1],j[1],o[1]);
+product I30(x[2],j[1],o[1],one[1],two[1],sign[1],sp[2],j[2],o[2]);
+product I31(x[3],j[2],o[2],one[1],two[1],sign[1],sp[3],j[3],o[3]);
+product I32(x[4],j[3],o[3],one[1],two[1],sign[1],sp[4],j[4],o[4]);
+product I33(x[5],j[4],o[4],one[1],two[1],sign[1],sp[5],j[5],o[5]);
+product I34(x[6],j[5],o[5],one[1],two[1],sign[1],sp[6],j[6],o[6]);
+product I35(x[7],j[6],o[6],one[1],two[1],sign[1],sp[7],j[7],o[7]);
+xor I36(m[3],j[7],o[7]);
+and I37(m[4],two[1],j[7]);
+and I38(m[5],one[1],m[3]);
+or I39(sp[8],m[4],m[5]);
+not I40(sp[9],sp[8]);
 
 //third product
 product r0(x[0],sign[2],cry[2],one[2],two[2],sign[2],tp[0],k[0],q[0]);
