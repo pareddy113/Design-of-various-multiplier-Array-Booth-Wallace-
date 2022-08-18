@@ -117,15 +117,19 @@ FAd I77(fop[6],tp[8],1'b1,c0[6],ip0[6]);
 assign p[2]=ip1[0];
 
 // 2nd lvl add
-HAd h11(fop[0],ip0[0],c1[4],ip1[4]);
-FAd h12(fop[1],ip0[1],c0[0],c1[5],ip1[5]);
-FAd h13(fop[2],ip0[2],c0[1],c1[6],ip1[6]);
-FAd h14(fop[3],ip0[3],c0[2],c1[7],ip1[7]);
-FAd h15(fop[4],ip0[4],c0[3],c1[8],ip1[8]);
-FAd h16(fop[5],ip0[5],c0[4],c1[9],ip1[9]);
-HAd h17(ip0[6],c0[5],c1[10],ip1[10]);
-FAd h18(fop[7],tp[9],c0[6],c1[11],ip1[11]);
-HAd h19(fop[8],1'b1,c1[12],ip1[12]);
+HAd I79(fop[0],ip0[0],c1[4],ip1[4]);
+
+FAd I80(fop[1],ip0[1],c0[0],c1[5],ip1[5]);
+FAd I81(fop[2],ip0[2],c0[1],c1[6],ip1[6]);
+FAd I82(fop[3],ip0[3],c0[2],c1[7],ip1[7]);
+FAd I83(fop[4],ip0[4],c0[3],c1[8],ip1[8]);
+FAd I84(fop[5],ip0[5],c0[4],c1[9],ip1[9]);
+  
+HAd I85(ip0[6],c0[5],c1[10],ip1[10]);
+  
+FAd I86(fop[7],tp[9],c0[6],c1[11],ip1[11]);
+  
+HAd I87(fop[8],1'b1,c1[12],ip1[12]);
 
 //3th add
 cla cla1(p[6:3],c2[0],1'b0,ip1[4:1],c1[3:0]);
