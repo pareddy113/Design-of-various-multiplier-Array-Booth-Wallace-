@@ -99,17 +99,21 @@ not I66(fop[9],fop[8]);
 
 //addition
 // 1st lvl add
-HAd h1(fp[2],sp[0],c1[0],ip1[0]);
-HAd h30(fp[3],sp[1],c1[1],ip1[1]);
-FAd h2(fp[4],sp[2],tp[0],c1[2],ip1[2]);
-FAd h3(fp[5],sp[3],tp[1],c1[3],ip1[3]);
-FAd h4(fp[6],sp[4],tp[2],c0[0],ip0[0]);
-FAd h5(fp[7],sp[5],tp[3],c0[1],ip0[1]);
-FAd h6(fp[8],sp[6],tp[4],c0[2],ip0[2]);
-FAd h7(fp[8],sp[7],tp[5],c0[3],ip0[3]);
-FAd h8(fp[8],sp[8],tp[6],c0[4],ip0[4]);
-FAd h9(fp[9],sp[9],tp[7],c0[5],ip0[5]);
-FAd h10(fop[6],tp[8],1'b1,c0[6],ip0[6]);
+
+// module HAd(a,b,c,s);
+HAd I67(fp[2],sp[0],c1[0],ip1[0]);
+HAd I68(fp[3],sp[1],c1[1],ip1[1]);
+
+// module FAd(a,b,c,cy,sm);
+FAd I69(fp[4],sp[2],tp[0],c1[2],ip1[2]);
+FAd I70(fp[5],sp[3],tp[1],c1[3],ip1[3]);
+FAd I71(fp[6],sp[4],tp[2],c0[0],ip0[0]);
+FAd I72(fp[7],sp[5],tp[3],c0[1],ip0[1]);
+FAd I73(fp[8],sp[6],tp[4],c0[2],ip0[2]);
+FAd I74(fp[8],sp[7],tp[5],c0[3],ip0[3]);
+FAd I75(fp[8],sp[8],tp[6],c0[4],ip0[4]);
+FAd I76(fp[9],sp[9],tp[7],c0[5],ip0[5]);
+FAd I77(fop[6],tp[8],1'b1,c0[6],ip0[6]);
 assign p[2]=ip1[0];
 
 // 2nd lvl add
@@ -174,6 +178,8 @@ output c,s;
 xor I0(s,a,b);
 and I1(c,a,b);
 endmodule
+
+// iki fa'nin mantigi? belki propogation delay?
 
 module MUX(i0,i1,s,o);
 input i0,i1,s;
