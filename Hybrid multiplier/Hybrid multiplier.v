@@ -82,19 +82,20 @@ or I52(tp[8],m[7],m[8]);
 not I53(tp[9],tp[8]);
 
 //fourth product
-product s0(x[0],sign[3],cry[3],one[3],two[3],sign[3],fop[0],l[0],r[0]);
-product s1(x[1],l[0],r[0],one[3],two[3],sign[3],fop[1],l[1],r[1]);
-product s2(x[2],l[1],r[1],one[3],two[3],sign[3],fop[2],l[2],r[2]);
-product s3(x[3],l[2],r[2],one[3],two[3],sign[3],fop[3],l[3],r[3]);
-product s4(x[4],l[3],r[3],one[3],two[3],sign[3],fop[4],l[4],r[4]);
-product s5(x[5],l[4],r[4],one[3],two[3],sign[3],fop[5],l[5],r[5]);
-product s6(x[6],l[5],r[5],one[3],two[3],sign[3],fop[6],l[6],r[6]);
-product s7(x[7],l[6],r[6],one[3],two[3],sign[3],fop[7],l[7],r[7]);
-xor x4(m[9],l[7],r[7]);
-and a7(m[10],two[3],l[7]);
-and a8(m[11],one[3],m[9]);
-or o4(fop[8],m[10],m[11]);
-not n4(fop[9],fop[8]);
+// module product(x1,x0,x2,one,two,sign,p,i,ca);
+product I54(x[0],sign[3],cry[3],one[3],two[3],sign[3],fop[0],l[0],r[0]);
+product I55(x[1],l[0],r[0],one[3],two[3],sign[3],fop[1],l[1],r[1]);
+product I56(x[2],l[1],r[1],one[3],two[3],sign[3],fop[2],l[2],r[2]);
+product I57(x[3],l[2],r[2],one[3],two[3],sign[3],fop[3],l[3],r[3]);
+product I58(x[4],l[3],r[3],one[3],two[3],sign[3],fop[4],l[4],r[4]);
+product I59(x[5],l[4],r[4],one[3],two[3],sign[3],fop[5],l[5],r[5]);
+product I60(x[6],l[5],r[5],one[3],two[3],sign[3],fop[6],l[6],r[6]);
+product I61(x[7],l[6],r[6],one[3],two[3],sign[3],fop[7],l[7],r[7]);
+xor I62(m[9],l[7],r[7]);
+and I63(m[10],two[3],l[7]);
+and I64(m[11],one[3],m[9]);
+or I65(fop[8],m[10],m[11]);
+not I66(fop[9],fop[8]);
 
 //addition
 // 1st lvl add
