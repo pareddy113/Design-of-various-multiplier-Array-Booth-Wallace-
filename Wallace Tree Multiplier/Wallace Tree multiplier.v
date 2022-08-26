@@ -2,16 +2,16 @@ module wallace(x,y,p);
 input [7:0] x,y;
   
 output [15:0] p;
-  
-wire [5:0] ip0;
-wire [6:0] ip1,ip2,ip3,ip4,ip5,ip6,ip7;
+
+wire [6:0] ip0,ip1,ip2,ip3,ip4,ip5,ip6,ip7;
 wire [7:0] si,iip;
 wire [6:0] s1,s2,s3,s4,s5,s6;
 wire [7:0] c1,c2,c3,c4,c5,c6,c7;
 wire c;
   
 // first AND array
-and_array aa1(y[0], x, {ip0,p[0]}, si[0]);
+and_array aa1(y[0], x, {ip0[5:0],p[0]}, si[0]);
+not nsi0(ip0[6],si[0]);
 
 // second AND array and NOT GATES
 and_array aa2(y[1], x, ip1, si[1]);
