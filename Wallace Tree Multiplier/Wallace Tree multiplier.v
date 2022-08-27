@@ -36,14 +36,14 @@ wire niip7;
 and_array I8(y[7], x, iip[6:0], niip7);
 not I9(iip[7], niip7);
 
-xor ei1(ip7[0],y[7],iip[0]);
-xor ei2(ip7[1],y[7],iip[1]);
-xor ei3(ip7[2],y[7],iip[2]);
-xor ei4(ip7[3],y[7],iip[3]);
-xor ei5(ip7[4],y[7],iip[4]);
-xor ei6(ip7[5],y[7],iip[5]);
-xor ei7(ip7[6],y[7],iip[6]);
-xnor ei8(si[7],y[7],iip[7]);
+xor I10(ip7[0],y[7],iip[0]);
+xor I11(ip7[1],y[7],iip[1]);
+xor I12(ip7[2],y[7],iip[2]);
+xor I13(ip7[3],y[7],iip[3]);
+xor I14(ip7[4],y[7],iip[4]);
+xor I15(ip7[5],y[7],iip[5]);
+xor I16(ip7[6],y[7],iip[6]);
+xnor I17(si[7],y[7],iip[7]);
 
   
 //first adder array
