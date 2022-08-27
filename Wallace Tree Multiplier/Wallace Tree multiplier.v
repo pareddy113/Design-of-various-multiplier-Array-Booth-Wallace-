@@ -82,9 +82,9 @@ module HA(a,b,c,s);
 input a,b;
   
 output c,s;
-  
-xor x1(s,a,b);
-and a1(c,a,b);
+
+and I0(c,a,b);
+xor I1(s,a,b);
 endmodule
 
 module FA(a,b,c,cy,sm);
@@ -94,11 +94,9 @@ output cy,sm;
   
 wire x,y,z;
   
-xor x1(x,a,b);
-xor x2(sm,x,c);
-and a1(y,a,b);
-and a2(z,x,c);
-or o1(cy,y,z);
+HA I0(a,b,x,z);
+HA I1(z,c,y,sm);
+or I2(cy,x,y);
 endmodule
 
 module and_array(y, x, ip, si);
