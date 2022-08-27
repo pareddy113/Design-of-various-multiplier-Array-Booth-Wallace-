@@ -10,31 +10,31 @@ wire [7:0] c1,c2,c3,c4,c5,c6,c7;
 wire c;
   
 // first AND array
-and_array aa1(y[0], x, {ip0[5:0],p[0]}, si[0]);
-not nsi0(ip0[6],si[0]);
+and_array I0(y[0], x, {ip0[5:0],p[0]}, si[0]);
+not I1(ip0[6],si[0]);
 
 // second AND array and NOT GATES
-and_array aa2(y[1], x, ip1, si[1]);
+and_array I2(y[1], x, ip1, si[1]);
 
 //third
-and_array aa3(y[2], x, ip2, si[2]);
+and_array I3(y[2], x, ip2, si[2]);
 
 //fourth
-and_array aa4(y[3], x, ip3, si[3]);
+and_array I4(y[3], x, ip3, si[3]);
 
 //fifth
-and_array aa5(y[4], x, ip4, si[4]);
+and_array I5(y[4], x, ip4, si[4]);
 
 //sixth
-and_array aa6(y[5], x, ip5, si[5]);
+and_array I6(y[5], x, ip5, si[5]);
 
 //seventh
-and_array aa7(y[6], x, ip6, si[6]);
+and_array I7(y[6], x, ip6, si[6]);
 
 //eight
 wire niip7;
-and_array aa8(y[7], x, iip[6:0], niip7);
-not neii8(iip[7], niip7);
+and_array I8(y[7], x, iip[6:0], niip7);
+not I9(iip[7], niip7);
 
 xor ei1(ip7[0],y[7],iip[0]);
 xor ei2(ip7[1],y[7],iip[1]);
