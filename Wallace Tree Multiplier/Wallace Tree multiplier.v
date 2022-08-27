@@ -47,34 +47,34 @@ xnor I17(si[7],y[7],iip[7]);
 
   
 //first adder array
-adder_array ada1(si[0], ip0, {si[1],ip1}, ip2, s1, c1, p[1]);
+adder_array I18(si[0], ip0, {si[1],ip1}, ip2, s1, c1, p[1]);
 
 //second adder array
-adder_array ada2(si[2], s1, c1, ip3, s2, c2, p[2]);
+adder_array I19(si[2], s1, c1, ip3, s2, c2, p[2]);
 
 //third adder
-adder_array ada3(si[3], s2, c2, ip4, s3, c3, p[3]);
+adder_array I20(si[3], s2, c2, ip4, s3, c3, p[3]);
 
 //fourth adder
-adder_array ada4(si[4], s3, c3, ip5, s4, c4, p[4]);
+adder_array I21(si[4], s3, c3, ip5, s4, c4, p[4]);
 
 //fifth adder
-adder_array ada5(si[5], s4, c4, ip6, s5, c5, p[5]);
+adder_array I22(si[5], s4, c4, ip6, s5, c5, p[5]);
 
 //sixth adder
-adder_array ada6(si[6], s5, c5, ip7, s6, c6, p[6]);
+adder_array I23(si[6], s5, c5, ip7, s6, c6, p[6]);
 
   
 //seventh adder
-FA sea0(s6[0],c6[0],y[7],c7[0],p[7]);
-FA sea1(s6[1],c6[1],c7[0],c7[1],p[8]);
-FA sea2(s6[2],c6[2],c7[1],c7[2],p[9]);
-FA sea3(s6[3],c6[3],c7[2],c7[3],p[10]);
-FA sea4(s6[4],c6[4],c7[3],c7[4],p[11]);
-FA sea5(s6[5],c6[5],c7[4],c7[5],p[12]);
-FA sea6(s6[6],c6[6],c7[5],c7[6],p[13]);
-FA sea7(si[7],c6[7],c7[6],c7[7],p[14]);
-HA ha8(c7[7],1'b1,c,p[15]);
+FA I24(s6[0],c6[0],y[7],c7[0],p[7]);
+FA I25(s6[1],c6[1],c7[0],c7[1],p[8]);
+FA I26(s6[2],c6[2],c7[1],c7[2],p[9]);
+FA I27(s6[3],c6[3],c7[2],c7[3],p[10]);
+FA I28(s6[4],c6[4],c7[3],c7[4],p[11]);
+FA I29(s6[5],c6[5],c7[4],c7[5],p[12]);
+FA I30(s6[6],c6[6],c7[5],c7[6],p[13]);
+FA I31(si[7],c6[7],c7[6],c7[7],p[14]);
+HA I32(c7[7],1'b1,c,p[15]);
 
 endmodule
 
