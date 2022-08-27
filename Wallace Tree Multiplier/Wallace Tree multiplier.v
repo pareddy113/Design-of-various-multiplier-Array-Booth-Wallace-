@@ -106,14 +106,14 @@ input [7:0] x;
 output [6:0] ip;
 output si;
   
-and se1(ip[0],y,x[0]);
-and se2(ip[1],y,x[1]);
-and se3(ip[2],y,x[2]);
-and se4(ip[3],y,x[3]);
-and se5(ip[4],y,x[4]);
-and se6(ip[5],y,x[5]);
-and se7(ip[6],y,x[6]);
-nand se8(si,  y,x[7]);
+and I0(ip[0],y,x[0]);
+and I1(ip[1],y,x[1]);
+and I2(ip[2],y,x[2]);
+and I3(ip[3],y,x[3]);
+and I4(ip[4],y,x[4]);
+and I5(ip[5],y,x[5]);
+and I6(ip[6],y,x[6]);
+nand I7(si,  y,x[7]);
 endmodule
 
 module adder_array(si, s1, c1, ip, s2, c2, p);
