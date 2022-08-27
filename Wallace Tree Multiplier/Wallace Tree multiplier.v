@@ -7,7 +7,7 @@ wire [6:0] ip0,ip1,ip2,ip3,ip4,ip5,ip6,ip7;
 wire [7:0] si,iip;
 wire [6:0] s1,s2,s3,s4,s5,s6;
 wire [7:0] c1,c2,c3,c4,c5,c6,c7;
-wire c;
+//wire c;
   
 // first AND array
 and_array I0(y[0], x, {ip0[5:0],p[0]}, si[0]);
@@ -74,7 +74,8 @@ FA I28(s6[4],c6[4],c7[3],c7[4],p[11]);
 FA I29(s6[5],c6[5],c7[4],c7[5],p[12]);
 FA I30(s6[6],c6[6],c7[5],c7[6],p[13]);
 FA I31(si[7],c6[7],c7[6],c7[7],p[14]);
-HA I32(c7[7],1'b1,c,p[15]);
+//HA I32(c7[7],1'b1,c,p[15]);
+xor I32(p[15],1'b1,c7[7]);
 
 endmodule
 
